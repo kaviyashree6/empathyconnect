@@ -170,7 +170,7 @@ const TherapistLogin = () => {
 
           <p className="text-center text-xs text-muted-foreground">
             Need access?{" "}
-            <a href="mailto:srinithibharathiselvaraj@gmail.com" className="text-primary hover:underline">
+            <a href="mailto:kaviyashree2066@gmail.com" className="text-primary hover:underline">
               Contact your administrator
             </a>
           </p>
