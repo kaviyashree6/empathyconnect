@@ -1,8 +1,23 @@
 import { Heart } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToSection = (id: string) => {
+    if (location.pathname !== "/") {
+      navigate("/");
+      // Wait for navigation then scroll
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -16,18 +31,27 @@ const Header = () => {
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
-          <Link to="/#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <button
+            onClick={() => scrollToSection("features")}
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors bg-transparent border-none cursor-pointer p-0"
+          >
             Features
-          </Link>
+          </button>
           <Link to="/wellness" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             Wellness Hub
           </Link>
-          <Link to="/#privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <button
+            onClick={() => scrollToSection("privacy")}
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors bg-transparent border-none cursor-pointer p-0"
+          >
             Privacy
-          </Link>
-          <Link to="/#helplines" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          </button>
+          <button
+            onClick={() => scrollToSection("helplines")}
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors bg-transparent border-none cursor-pointer p-0"
+          >
             Helplines
-          </Link>
+          </button>
         </nav>
 
         <div className="flex items-center gap-3">

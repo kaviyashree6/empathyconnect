@@ -16,6 +16,8 @@ import Settings from "./pages/Settings";
 import Wellness from "./pages/Wellness";
 import EmotionalDashboard from "./pages/EmotionalDashboard";
 
+
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -36,7 +38,8 @@ const App = () => (
             <Route path="/emotional-dashboard" element={<EmotionalDashboard />} />
             <Route path="/therapist" element={<TherapistLogin />} />
             <Route path="/therapist/dashboard" element={<TherapistDashboard />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
+            {/* Catch-all route */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
